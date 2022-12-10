@@ -63,5 +63,5 @@ jobs:
       with:
         context: "postgres-appliance/"
         push: true
-        # tags: "${{ secrets.ECR }}/${{ secrets.ECR_REPOSITORY }}:${{ env.TAG }}"
+        tags: "${{ secrets.ECR }}/${{ secrets.ECR_REPOSITORY }}:${{ env.TAG }}"
         platforms: linux/amd64,linux/arm64
