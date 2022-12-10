@@ -68,6 +68,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: "postgres-appliance/"
-        push: true
+        push: false
         tags: "${{ steps.image.outputs.NAME }}"
         platforms: linux/amd64,linux/arm64
