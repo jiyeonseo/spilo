@@ -57,8 +57,11 @@ jobs:
 
     - name: Build arm64 additionaly and push multiarch image to ECR
       uses: docker/build-push-action@v3
+      env:
+        ECR: ${{ steps.login-ecr.outputs.registry }}
+        TAG: ${{ github.ref_name }}
       with:
         context: "postgres-appliance/"
         push: true
-        tags: "${{ secrets.ECR }}/${{ secrets.ECR_REPOSITORY }}:${{ env.TAG }}"
+        # tags: "${{ secrets.ECR }}/${{ secrets.ECR_REPOSITORY }}:${{ env.TAG }}"
         platforms: linux/amd64,linux/arm64
